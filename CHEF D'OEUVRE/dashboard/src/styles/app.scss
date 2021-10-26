@@ -1,0 +1,9 @@
+html {
+//   border: 0px;
+//   padding: 0px;
+  & #root,body,
+  & * {
+    margin:0px;
+    padding:0px;
+  }
+}
