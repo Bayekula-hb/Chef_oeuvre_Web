@@ -14,6 +14,13 @@ const ConnexionPage = () => {
       padding: "auto 0px",
       fontSize: "2rem",
     },
+    '@media all and (max-device-width: 480px)': {
+      div: {
+        display: 'flex',
+        flexDirection: "column-reverse",
+        "& > div > img":{display:"none"},
+      },
+    },
     div_left: {
       width: "100%",
       height: "100%",
@@ -37,7 +44,7 @@ const ConnexionPage = () => {
   }));
   const styles = useStyles(imgBg);
   return (
-    <div className={styles.div}>
+    <div className={`${styles.div}`}>
       <div className={styles.div_left}>
         <Box
           component="div"
