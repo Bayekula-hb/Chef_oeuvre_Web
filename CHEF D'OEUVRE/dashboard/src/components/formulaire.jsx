@@ -15,7 +15,7 @@ const Formulaire = () => {
         fontSize: "1.6rem",
         display : "flex",
         flexDirection : "column",
-        // alignContent : "space-between",
+        alignContent : "space-between",
         "& > Button":{width:"50%", alignSelf:"center", fontSize:"1.3rem"},
         "& > Button:hover":{backgroundColor:"transparent", color:"#1976D2"},
       }}
