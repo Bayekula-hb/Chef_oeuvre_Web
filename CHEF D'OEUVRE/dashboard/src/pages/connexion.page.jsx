@@ -13,12 +13,16 @@ const ConnexionPage = () => {
       flexDirection: "row",
       padding: "auto 0px",
       fontSize: "2rem",
+      
     },
     '@media all and (max-device-width: 480px)': {
       div: {
         display: 'flex',
         flexDirection: "column-reverse",
         "& > div > img":{display:"none"},
+        padding:"0px",
+        // backgroundColor:"#FF718D",
+        // color:"white"
       },
     },
     div_left: {

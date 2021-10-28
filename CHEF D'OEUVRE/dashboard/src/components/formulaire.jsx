@@ -9,25 +9,28 @@ const Formulaire = () => {
     <Box
       component="form"
       sx={{
-        "& > *": {margin:"10%"},
+        "& > *": {margin:"10% 0%"},
         "& > *> label ": {fontSize: "1.6rem"},
         padding : "5%",
         fontSize: "1.6rem",
         display : "flex",
         flexDirection : "column",
-        // alignContent : "space-between",
+        alignContent:"justify-between",
         "& > Button":{width:"50%", alignSelf:"center", fontSize:"1.3rem"},
         "& > Button:hover":{backgroundColor:"transparent", color:"#1976D2"},
         '@media all and (max-device-width: 480px)': {
         //  "&":{backgroundImage:`url(${imgBg})`, backgroundSize:"cover"},
-        "&":{
-          fontSize:"1rem",
-          "& > Button":{
-            fontSize : "0.8rem",
-            width : "auto"
+          "&":{
+            fontSize:"1rem",
+            "& > Button":{
+              fontSize : "0.8rem",
+              width : "auto"
+            },
+            padding:"0px",
+            "& > form > *":{
+              width : "auto",
+            },
           }
-        }
-
         },
       }}
       noValidate
