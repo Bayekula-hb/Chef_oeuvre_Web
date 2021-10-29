@@ -1,50 +1,73 @@
-// import Box from "@mui/material/Box";
-// import Page from "../components/pages";
 import { Typography, Stack } from "@mui/material";
 import ImageIllustration from "../images/undraw_world_9iqb.svg";
+import { MHidden } from "../components/@material-extend";
 import { makeStyles, styled } from "@mui/styles";
-import { SectionRow, SectionColumn } from "../components/div";
 import FormLogin from "../components/formLogin";
 
 const ConnexionPage = () => {
   const SectionContainer = styled("div")(() => ({
     display: "flex",
     flexDirection: "row",
-    width: "100%",
+  }));
+  const SectionStyle = styled("div")(({ theme }) => ({
+    // width: "100%",
+    // maxWidth: 564,
+    maxHeight: "98vh",
+    boxShadow: 0,
+    display: "flex",
+    // border: "1px solid",
+    textAlign: "center",
+    flexDirection: "column",
+    justifyContent: "center",
+    verticalAlign: "middle",
+    margin: theme.spacing(0, 0, 5, 7),
+  }));
+  const ContainerForm = styled("div")(({ theme }) => ({
+    color: "#343F59",
+    // maxWidth: 580,
+    maxHeight: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    margin:0,
   }));
   const useStyles = makeStyles(() => ({
-    Image: {
-      width: "100%",
+    div: {
+      width: "60vw", 
+      // padding: "12%",
+      padding: "8%",
+      fontSize:"6.6rem",
+      // border:"dashed",
     },
-    Section: {
-      width: "50vw",
-    },
-    SectionLogin: {
-      // margin: "25%",
-      // width: "50%",
-      // padding: "10%",
-      border: "dashed",
-    },
+    Image:{
+      maxHeight:"100%",
+      maxWidth:"100%",
+      // border:"dashed"
+    }
   }));
   const styles = useStyles();
   return (
     <SectionContainer>
-      <SectionColumn className={(styles.Section, styles.SectionLogin)}>
-        <Stack>
-          <Typography
-            variant="h3"
-            component="h2"
-            sx={{ border: "dashed" }}
-            // sx={{ px: 5, mt: 10, mb: 5, color: "#343F59" }}
-          >
-            Connexion
+      <ContainerForm className={styles.div}>
+        <Stack sx={{ m: 1 }}>
+          <Typography variant="h3" gutterBottom>
+            Boyeli Malamu
           </Typography>
         </Stack>
-        <FormLogin  sx={{ border: "dashed" }} />
-      </SectionColumn>
-      <SectionRow className={styles.Section}>
-        <img src={ImageIllustration} alt="login" className={styles.Image} />
-      </SectionRow>
+        <FormLogin />
+      </ContainerForm>
+      <MHidden width="mdDown">
+        <SectionStyle>
+          <Typography
+            variant="h3"
+            sx={{ color: "#343F59",m:2}}
+            // sx={{ px: 5, mt: 5, mb: 3, color: "#343F59" }}
+          >
+            Lopango Infos
+          </Typography>
+          <img src={ImageIllustration} className={styles.Image} />
+        </SectionStyle>
+      </MHidden>
     </SectionContainer>
   );
 };

@@ -1,15 +1,18 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import OutlinedInput from "@mui/material/OutlinedInput";
+import { useFormik, Form, FormikProvider } from "formik";
+import { TextField } from "@mui/material";
+import { styled, makeStyles } from "@mui/styles";
+//--
 import IconButton from "@mui/material/IconButton";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import InputLabel from "@mui/material/InputLabel";
+import InputAdornment from "@mui/material/InputAdornment";
+import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import InputAdornment from "@mui/material/InputAdornment";
 import SendIcon from "@mui/icons-material/Send";
+import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import { SectionColumn } from "./div";
-import { makeStyles } from "@mui/styles";
 
 const FormLogin = () => {
   const [values, setValues] = React.useState({
@@ -19,6 +22,7 @@ const FormLogin = () => {
     weightRange: "",
     showPassword: false,
   });
+
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
@@ -34,40 +38,28 @@ const FormLogin = () => {
     event.preventDefault();
   };
   const useStyles = makeStyles(() => ({
-    div: {
-      height: "99vh",
+    container: {
+      // margin: "7%",
+      width:"100%",
+      // padding:"10%",
       // border: "dashed",
-      width: "50%",
-      color: "#C4C4C4",
-    },
-    SousDiv: {
-      // margin:"35%",
-      "& > div": { margin: "5%", alignSelf:"center", "&>label":{fontSize:"1.3rem"} },
-      // margin: "25%",
-      // width: "50%",
-      // padding: "10%",
-      // // border: "dashed",
-      // flexDirection: "column",
-      // alignContent: "space-between",
     },
   }));
   const styles = useStyles();
   return (
-      <Box component="form" className={styles.div}>
-        <SectionColumn className={styles.SousDiv}>
-          <TextField
-            fullWidth
-            autoComplete="email"
-            type="email"
-            label="Adresse mail"
-          />
-          <TextField
-            fullWidth
-            autoComplete="password"
-            type="password"
-            label="password"
-          />
-          {/* <OutlinedInput
+    <FormikProvider>
+      <div className={styles.container}>
+        <TextField
+          sx={{ m: 1, width: "100%" }}
+          fullWidth
+          label="email"
+          id="email_input"
+        />
+        <FormControl sx={{ m: 1, width: "100%" }} variant="outlined">
+          <InputLabel htmlFor="outlined-adornment-password">
+            Password
+          </InputLabel>
+          <OutlinedInput
             id="outlined-adornment-password"
             type={values.showPassword ? "text" : "password"}
             value={values.password}
@@ -85,12 +77,19 @@ const FormLogin = () => {
               </InputAdornment>
             }
             label="Password"
-          /> */}
-          <Button variant="contained" endIcon={<SendIcon />}>
-            se connecter
+          />
+        </FormControl>
+        <Stack>
+          <Button
+            variant="contained"
+            endIcon={<SendIcon />}
+            sx={{ width: "100%", m: 1 }}
+          >
+            Envoyer
           </Button>
-        </SectionColumn>
-      </Box>
+        </Stack>
+      </div>
+    </FormikProvider>
   );
 };
 export default FormLogin;
