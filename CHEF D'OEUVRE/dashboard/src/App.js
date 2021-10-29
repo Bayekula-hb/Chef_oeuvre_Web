@@ -1,9 +1,9 @@
-import "./styles/app.scss"
-import ConnexionPage from "./pages/connexion.page";
+import "./styles/app.scss";
+import ConnexioPage from "./pages/connexion_page";
 
 const App = ()=>{
   return(
-    <ConnexionPage/>
+    <ConnexioPage/>
   )
 }
 export default App;
