@@ -11,7 +11,7 @@ import Button from "@mui/material/Button";
 import { SectionColumn } from "./div";
 import { makeStyles } from "@mui/styles";
 
-const FormLogin = ({props}) => {
+const FormLogin = () => {
   const [values, setValues] = React.useState({
     amount: "",
     password: "",
@@ -43,18 +43,16 @@ const FormLogin = ({props}) => {
     SousDiv: {
       // margin:"35%",
       "& > div": { margin: "5%", alignSelf:"center", "&>label":{fontSize:"1.3rem"} },
-      margin: "25%",
-      width: "50%",
-      padding: "10%",
-      // border: "dashed",
-      flexDirection: "column",
-      alignContent: "space-between",
+      // margin: "25%",
+      // width: "50%",
+      // padding: "10%",
+      // // border: "dashed",
+      // flexDirection: "column",
+      // alignContent: "space-between",
     },
   }));
   const styles = useStyles();
   return (
-    <>
-      {props}
       <Box component="form" className={styles.div}>
         <SectionColumn className={styles.SousDiv}>
           <TextField
@@ -93,7 +91,6 @@ const FormLogin = ({props}) => {
           </Button>
         </SectionColumn>
       </Box>
-    </>
   );
 };
 export default FormLogin;
