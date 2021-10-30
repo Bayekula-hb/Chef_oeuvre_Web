@@ -49,12 +49,18 @@ const FormLogin = () => {
   return (
     <FormikProvider>
       <div className={styles.container}>
-        <TextField
-          sx={{ m: 1, width: "100%", "input": {fontSize:"1.8rem"},"& > label":{fontSize:"1.8rem", mr:1} }}
-          fullWidth
-          label="email"
-          id="email_input"
-        />
+        <FormControl sx={{ m: 1, width: "100%", "& > label":{fontSize:"1.8rem", mr:1},  }} variant="outlined">
+          <InputLabel htmlFor="outlined-adornment-password">
+            email
+          </InputLabel>
+          <OutlinedInput
+            id="outlined-adornment-email"
+            type="email"
+            value={values.email}
+            sx={{fontSize:"1.8rem", mr:1}}
+            label="email"
+          />
+        </FormControl>
         <FormControl sx={{ m: 1, width: "100%", "& > label":{fontSize:"1.8rem", mr:1},  }} variant="outlined">
           <InputLabel htmlFor="outlined-adornment-password">
             Password

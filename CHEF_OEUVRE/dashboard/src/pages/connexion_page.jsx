@@ -65,7 +65,7 @@ const ConnexionPage = () => {
           >
             Lopango Infos
           </Typography>
-          <img src={ImageIllustration} className={styles.Image} />
+          <img src={ImageIllustration} className={styles.Image} alt="Lopango/Terre" />
         </SectionStyle>
       </MHidden>
     </SectionContainer>
