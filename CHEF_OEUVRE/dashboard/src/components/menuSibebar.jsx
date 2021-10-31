@@ -9,8 +9,13 @@ import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
+import Menu from '@mui/material/Menu';
 import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import MenuItem from '@mui/material/MenuItem';
+import Tooltip from '@mui/material/Tooltip';
+import PersonAdd from '@mui/icons-material/PersonAdd';
+import Settings from '@mui/icons-material/Settings';
+import Logout from '@mui/icons-material/Logout';
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -78,6 +83,15 @@ export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const openAvatar = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -118,11 +132,76 @@ export default function PersistentDrawerLeft() {
             >
               Dashbord
             </Typography>
-            <Stack direction="row" spacing={2}>
+            
+            <Stack direction="row" spacing={2} onClick={handleClick} >
               <Avatar sx={{ bgcolor: "error.main", fontSize:"1.6rem" }}>HB</Avatar>
             </Stack>
+            
+            {/* <Tooltip title="Paramètres"> */}
+                {/* <IconButton onClick={handleClick} size="large" sx={{ ml: 2 }}>
+                    <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+                </IconButton> */}
+            {/* </Tooltip> */}
           </Box>
         </Toolbar>
+        <Menu
+        anchorEl={anchorEl}
+        open={openAvatar}
+        onClose={handleClose}
+        onClick={handleClose}
+        PaperProps={{
+          elevation: 0,
+          sx: {
+            fontSize:"1.6rem",
+            overflow: 'visible',
+            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+            mt: 1.5,
+            '& .MuiAvatar-root': {
+              width: 32,
+              height: 32,
+              ml: -0.5,
+              mr: 1,
+            },
+            '&:before': {
+              content: '""',
+              display: 'block',
+              position: 'absolute',
+              top: 0,
+              right: 14,
+              width: 10,
+              height: 10,
+              bgcolor: 'background.paper',
+              transform: 'translateY(-50%) rotate(45deg)',
+              zIndex: 0,
+            },
+          },
+        }}
+        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+      >
+        <MenuItem   sx={{
+            fontSize:"1.6rem",}}>
+          {/* <Avatar /> Profile */}
+          <Stack direction="row" spacing={2}>
+              <Avatar sx={{ bgcolor: "#6C63FF", fontSize:"1.6rem" }}>HB</Avatar> Profile
+            </Stack>
+        </MenuItem>
+        <Divider />
+        <MenuItem   sx={{
+            fontSize:"1.6rem",}}>
+          <ListItemIcon>
+            <Settings fontSize="large" />
+          </ListItemIcon>
+          Settings
+        </MenuItem>
+        <MenuItem  sx={{
+            fontSize:"1.6rem",}}>
+          <ListItemIcon>
+            <Logout fontSize="large" />
+          </ListItemIcon>
+          Logout
+        </MenuItem>
+      </Menu>
       </AppBar>
       <Drawer
         sx={{
@@ -151,17 +230,6 @@ export default function PersistentDrawerLeft() {
         <Divider />
         <List>
           {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
