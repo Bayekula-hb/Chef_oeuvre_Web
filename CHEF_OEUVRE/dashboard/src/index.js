@@ -2,9 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 
+import {BrowserRouter as Router} from "react-router-dom";
+import Home from "./pages/home.page";
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Router>
+    {/* <App /> */}
+    <Home/>
+  </Router>,
   document.getElementById("root")
 );
