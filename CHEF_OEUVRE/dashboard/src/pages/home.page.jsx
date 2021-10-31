@@ -1,4 +1,5 @@
 import {styled, makeStyles} from "@mui/material";
+import PersistentDrawerLeft from "../components/menuSibebar";
 import SideBar from "../components/sidebar";
 const Home = ()=>{
     const HomeContainer = styled("div")(()=>({
@@ -6,7 +7,8 @@ const Home = ()=>{
     }))
     return(
         <HomeContainer>
-            <SideBar/>
+            {/* <SideBar/> */}
+            <PersistentDrawerLeft />
         </HomeContainer>
     )
 }
