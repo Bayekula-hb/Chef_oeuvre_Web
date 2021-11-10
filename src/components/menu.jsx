@@ -72,7 +72,7 @@ export default function MenuList() {
                     <ListItemText
                       primary={item.label}
                       primaryTypographyProps={{
-                        fontSize: "1.6rem",
+                        fontSize: "2rem",
                         fontWeight: "medium",
                       }}
                     />

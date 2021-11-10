@@ -5,7 +5,6 @@ import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
@@ -66,10 +65,12 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   justifyContent: "flex-end",
+
 }));
 const useStyles = makeStyles(() => ({
   IconMenu: {
-    fontSize: "3rem",
+    fontSize: "4rem",
+    // "&:hover":{color:"red"}
   },
 }));
 
@@ -106,7 +107,7 @@ export default function PersistentDrawerLeft(props) {
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
-            sx={{ mr: 2, ...(open && { display: "none" }) }}
+            sx={{ mr: 0, ...(open && { display: "none" }) }}
           >
             <MenuIcon className={styles.IconMenu} />
           </IconButton>
@@ -116,7 +117,6 @@ export default function PersistentDrawerLeft(props) {
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-between",
-            //   border: "dashed",
               width:"95vw",
             }}
           >
@@ -124,9 +124,9 @@ export default function PersistentDrawerLeft(props) {
               variant="h5"
               noWrap
               component="div"
-              sx={{ fontSize: "1.8rem", paddingTop:1, }}
+              sx={{ fontSize: "2rem", paddingTop:1, textTransform:"uppercase"}}
             >
-              Dashbord
+              Lopango Infos
             </Typography>
             
             <Stack direction="row" spacing={2} onClick={handleClick} >
@@ -226,7 +226,7 @@ export default function PersistentDrawerLeft(props) {
         <Divider />
         <MenuList/>
       </Drawer>
-      <Main open={open}>
+      <Main open={open} sx={{paddingTop:"2%"}}>
         {props.children}
       </Main>
     </Box>

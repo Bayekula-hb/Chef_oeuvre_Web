@@ -43,7 +43,7 @@ const ContainerProvince = ()=>{
             <Stack 
                 sx={{display:"flex",flexDirection:"row",justifyContent:"end",fontSize:"1.6rem",alignSelf:"center", width:"100%"}}>
                 <TablePagination
-                sx={{alignSelf:"end", "&>*>*":{fontSize:"1.6rem",}}}
+                sx={{alignSelf:"end", "&>*>*":{fontSize:"1.7rem !important",}}}
                 component="div"
                 count={data.length}
                 page={page}
